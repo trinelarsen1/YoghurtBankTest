@@ -1,3 +1,5 @@
+﻿
+
     public class IdeaRepository : IIdeaRepository
     {
         private readonly IYoghurtContext _context;
@@ -175,3 +177,4 @@
             return AllIdeas.AsReadOnly();
         }
     }
+

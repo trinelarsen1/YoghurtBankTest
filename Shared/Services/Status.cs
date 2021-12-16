@@ -1,9 +1,9 @@
-public enum Status
+    public enum Status
     {
-    Created,
-    Updated,
-    Deleted,
-    NotFound,
-    BadRequest,
-    Conflict
-}
+        Created,
+        Updated,
+        Deleted,
+        NotFound,
+        BadRequest,
+        Conflict
+    }

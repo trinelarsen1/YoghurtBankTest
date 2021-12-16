@@ -1,3 +1,4 @@
+
     public interface ICollaborationRequestRepository
     {
         Task<CollaborationRequestDetailsDTO> CreateAsync(CollaborationRequestCreateDTO request);

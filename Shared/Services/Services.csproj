@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\YoghurtBank.Shared.csproj" />
-  </ItemGroup>
-
 </Project>

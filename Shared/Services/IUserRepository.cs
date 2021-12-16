@@ -1,3 +1,4 @@
+﻿
 
     public interface IUserRepository
     {
@@ -10,3 +11,4 @@
         Task<IReadOnlyCollection<UserDetailsDTO>> GetAllSupervisors(); 
 
     }
+

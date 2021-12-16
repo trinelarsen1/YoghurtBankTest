@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/YoghurtBank.Shared.csproj": {}
+    "C:\\Users\\Sof\\Documents\\Uni\\BDSA\\YoghurtTest\\Shared\\YoghurtBank.Shared.csproj": {}
   },
   "projects": {
-    "/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/YoghurtBank.Shared.csproj": {
+    "C:\\Users\\Sof\\Documents\\Uni\\BDSA\\YoghurtTest\\Shared\\YoghurtBank.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/YoghurtBank.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Sof\\Documents\\Uni\\BDSA\\YoghurtTest\\Shared\\YoghurtBank.Shared.csproj",
         "projectName": "YoghurtBank.Shared",
-        "projectPath": "/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/YoghurtBank.Shared.csproj",
-        "packagesPath": "/Users/trinelarsen/.nuget/packages/",
-        "outputPath": "/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/obj/",
+        "projectPath": "C:\\Users\\Sof\\Documents\\Uni\\BDSA\\YoghurtTest\\Shared\\YoghurtBank.Shared.csproj",
+        "packagesPath": "C:\\Users\\Sof\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sof\\Documents\\Uni\\BDSA\\YoghurtTest\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/trinelarsen/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Sof\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -62,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

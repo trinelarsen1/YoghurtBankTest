@@ -7,15 +7,11 @@ global using System.Threading;
 global using System.Threading.Tasks;
 global using Microsoft.EntityFrameworkCore;
 
-global using YoghurtBank.Shared.Model;
-global using YoghurtBank.Shared.Services;
-global using YoghurtBank.Shared.Infrastructure;
-
 
 global using Microsoft.AspNetCore;
 global using Microsoft.EntityFrameworkCore;
 
-global using Xunit;
+global using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 /*
 global using System.Linq;

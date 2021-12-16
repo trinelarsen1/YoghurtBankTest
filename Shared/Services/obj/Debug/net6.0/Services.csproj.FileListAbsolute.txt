@@ -1,5 +1,0 @@
-/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/Services/obj/Debug/net6.0/Services.csproj.AssemblyReference.cache
-/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/Services/obj/Debug/net6.0/Services.GeneratedMSBuildEditorConfig.editorconfig
-/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/Services/obj/Debug/net6.0/Services.AssemblyInfoInputs.cache
-/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/Services/obj/Debug/net6.0/Services.AssemblyInfo.cs
-/Users/trinelarsen/Desktop/Test/YoghurtBank/YoghurtBank/Shared/Services/obj/Debug/net6.0/Services.csproj.CoreCompileInputs.cache

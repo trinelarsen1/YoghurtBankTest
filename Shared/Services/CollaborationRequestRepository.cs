@@ -1,4 +1,7 @@
-   public class CollaborationRequestRepository : ICollaborationRequestRepository
+
+
+   
+    public class CollaborationRequestRepository : ICollaborationRequestRepository
     {
         private readonly IYoghurtContext _context;
         public CollaborationRequestRepository(IYoghurtContext context)
