@@ -1,6 +1,6 @@
 
 
-    public interface IYoghurtContext
+    public interface IYoghurtContext: IDisposable
     {
         public DbSet<User> Users {get;}
         public DbSet<Idea> Ideas { get; }

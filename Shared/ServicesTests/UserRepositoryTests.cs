@@ -1,19 +1,18 @@
-global using YoghurtBank.Shared;
-global using Microsoft.Data.Sqlite;
-global using Microsoft.EntityFrameworkCore;
-global using Microsoft.Extensions.Configuration;
-global using System;
-global using System.Collections.Generic;
-global using System.Data;
-global using System.Data.SqlClient;
-global using System.Threading.Tasks;
-global using System.Net;
-
 using Xunit;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Threading.Tasks;
+using System.Net;
 
-namespace ServicesTests;
+namespace ServicesTests
+{
 
-public class UserRepositoryTests : IDisposable
+    public class UserRepositoryTests : IDisposable
     {
         private readonly UserRepository _repository;
         private readonly YoghurtContext _context;
@@ -186,3 +185,4 @@ public class UserRepositoryTests : IDisposable
             GC.SuppressFinalize(this);
         }
     }
+}
