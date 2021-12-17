@@ -1,0 +1,60 @@
+@page "/ideadetails/{ideaId:int}" 
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using YoghurtBank.Shared
+
+@attribute [Authorize]
+@inject HttpClient Http
+@inject AuthenticationStateProvider auth
+@inject NavigationManager NavMan
+
+<!-- Layout inspired by Rasmus Lystrøm https://github.com/ondfisk/BDSA2021 -->
+
+@if(idea != null)
+{
+    <div>
+        <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            @idea.Title
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Subject: <br> @idea.Subject</h5>
+            <p class="card-text">Description: <br> @idea.Description</p>
+            <p class="card-text">Type of idea: <br> @idea.Type</p>
+            <p class="card-text">Creator (skal nok laves om, et id kan ikke bruges til meget): <br> @idea.CreatorId</p>
+            <p class="card-text">Amount of participants: <br> @idea.AmountOfCollaborators</p>
+            <p class="card-text">State: <br> @idea.Open</p>
+            <p class="card-text">Time of creation: <br> @idea.Posted</p>
+            
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary" @onclick="Edit">Edit</button>
+            <button type="button" class="btn btn-danger" @onclick="Delete">Delete</button>
+        </div>
+    </div>
+    </div>
+}
+
+
+@code {
+    [Parameter]
+    public int? ideaId { get; set; }
+    private IdeaDetailsDTO? idea;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        idea = await Http.GetFromJsonAsync<IdeaDetailsDTO>($"https://localhost:7194/api/idea/{ideaId}");
+        await base.OnParametersSetAsync(); //is this necessary?
+    }
+
+    private void Edit()
+    {
+        Console.WriteLine("Edit");
+    }
+
+    private void Delete()
+    {
+        Console.WriteLine("Delete");
+    }
+}

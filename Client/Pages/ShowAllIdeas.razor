@@ -1,0 +1,64 @@
+@page "/ideas"
+
+@inject NavigationManager NavMan
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using YoghurtBank.Shared
+@attribute [Authorize]
+@inject HttpClient Http
+
+<PageTitle>All ideas</PageTitle>
+
+<div style="display: flex">
+@if(ideas == null || ideas.Length == 0)
+{
+    <h1>No ideas - get creatin'!</h1>
+}
+else 
+{
+    foreach(var idea in ideas)
+    {
+        <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            @idea.Title
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Subject: <br> @idea.Subject</h5>
+            <p class="card-text">Description: <br> @idea.Description</p>
+            <p class="card-text">Type of idea: <br> @idea.Type</p>
+            <p class="card-text">Creator (skal nok laves om, et id kan ikke bruges til meget): <br> @idea.CreatorId</p>
+            <p class="card-text">Amount of participants: <br> @idea.AmountOfCollaborators</p>
+            <p class="card-text">State: <br> @idea.Open</p>
+            <p class="card-text">Time of creation: <br> @idea.Posted.Date</p>
+            
+        </div>
+        <div class="card-body">
+            @* <button type="button" class="btn btn-primary" style="background-color: green" @onclick="RequestCollab">Request collaboration</button> *@
+            @* <button type="button" class="btn btn-primary" @onclick="@(() => Nav(idea.Id))">Show details</button>  *@
+        </div>
+    </div>
+    }
+}
+</div>
+
+
+@code {
+    private IdeaDetailsDTO[]? ideas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ideas = await Http.GetFromJsonAsync<IdeaDetailsDTO[]>($"https://localhost:7194/api/idea");
+    }
+
+    private void RequestCollab()
+    {
+        Console.WriteLine("Request collab");
+    }
+
+    private void Nav(int id)
+    {
+        NavMan.NavigateTo($"https://localhost:7194/ideadetails/{id}");
+    }
+    
+}
