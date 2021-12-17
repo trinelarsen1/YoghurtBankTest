@@ -158,7 +158,7 @@ namespace ServicesTests
             var Line = await _repository.FindUserByIdAsync(4);
 
             var result = await _repository.GetAllSupervisors();
-            Assert.Equal(2, result.Count());
+            //Assert.Equal(2, result.Count());
             Assert.Collection(result, 
                 user => Assert.Equal(Jens, user),
                 user => Assert.Equal(Line, user)  
