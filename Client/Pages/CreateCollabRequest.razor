@@ -1,0 +1,122 @@
+<!---Inspired by Rasmus Lystrøm https://github.com/ondfisk/BDSA2021 -->
+@page "/createrequest"
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using YoghurtBank.Shared
+
+@attribute [Authorize]
+@inject HttpClient Http
+
+
+<PageTitle>Create a request for collaboration</PageTitle>
+<h1>Register your idea for a project!</h1>
+<p>You register a new idea by filling out the input form below</p>
+
+
+<EditForm Model="@request" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label for="Application">Application</label>
+        <InputTextArea id="Application" @bind-Value="request.Application" class="form-control" />
+    </div>
+    <!-- <div class="form-group">
+        <label for="AmountOfCollaborators">Amount of collaborators</label>
+        <InputNumber id="Description" @bind-Value="request.AmountOfCollaborators" class="form-control" />
+    </div> EN CREATEDTO TAGER PT. IKKE ET AMOUNT OF COLLABS-->
+    @if(supervisors != null)
+    {
+        <p class="card-text">Available supervisors:</p>
+               <ul class="list-group list-group-flush">
+                   @foreach (var super in supervisors)
+                   {
+                       //function call with parameter courtesy of: https://github.com/dotnet/aspnetcore/issues/10138 
+                       <li class="list-group-item"><button @onclick="@(() => PickSupervisor(super.Id))" class="btn btn-secondary">@super.UserName</button></li>
+                   }
+               </ul>
+                
+               @* plz make carousel work: https://www.mikesdotnetting.com/article/351/display-images-in-bootstrap-carousel-using-razor-pages-and-entity-framework
+                <div class="carousel slide" data-ride="carousel" data-interval="2000">
+                   <div class="carousel-inner">
+                       @foreach(var super in supervisors)
+                       {
+                           <div class="carousel-item active">@super.UserName </div> 
+                       }
+                       
+                   </div>
+               </div>
+
+                   
+                <div class="carousel carousel-slider center">
+                     @foreach (var super in supervisors)
+                   {
+                       <div class="carousel-fixed-item center">
+                        <a class="carousel-item"><button class="btn btn-secondary">@super.UserName</button></a>
+                       </div> 
+                   }
+                </div> *@
+    } else {
+        <h1>There are no supervisors to choose from</h1>
+    }
+    <div class="form-group">
+        <br />
+        <button type="submit" class="btn btn-success">Create</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+        <button type="button" class="btn btn-primary" @onclick="Cancel">Cancel</button>
+    </div>
+</EditForm>
+
+
+
+
+
+@code {
+    //StudentId skal autoudfyldes baseret på aktuel bruger
+    //--
+    //ideaid -> kan automatisk sendes med når man trykker på "request collab" knap på en idea
+    //--
+    //CreateDTO skal laves om til at tage et antal collaborators + der skal laves et tjek for 
+    //om det stemmer overens med ideens antal collabor's
+
+    private CollaborationRequestCreateDTO request = new(); 
+    private DateTime end;
+    private UserDetailsDTO[]? supervisors;
+
+    protected override async Task OnInitializedAsync()
+    {
+        supervisors = await Http.GetFromJsonAsync<UserDetailsDTO[]>("https://localhost:7194/api/user");
+
+    }
+
+    
+
+    private async Task HandleValidSubmit()
+    {
+        //create-knappen kalder automatisk denne hvis alle felter er udfyldt 
+        //pt. kan vi ikke finde ud af at enforce at en supervisor skal være valgt 
+
+
+        //API kald til når request skal gemmes 
+        //var result = await Http.PostAsJsonAsync("https://localhost:7194/api/collaborationrequest", request);
+
+        Console.WriteLine("Success");
+    }
+
+    private void Cancel()
+    {
+        Console.WriteLine("Cancelled");
+    }
+
+    //private async void Create()
+    //{
+    //    //not done... 
+    //    Console.WriteLine("Create has been called");        
+    //}
+
+    private void PickSupervisor(int Id)
+    {
+        request.SupervisorId = Id;
+        Console.WriteLine($"SuperId of request has been set to {request.SupervisorId}");
+    }
+}
